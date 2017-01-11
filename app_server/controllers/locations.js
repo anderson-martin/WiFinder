@@ -27,12 +27,12 @@ module.exports.homelist = function (req, res) {
 var renderHomepage = function (req, res) {
 
     res.render('locations-list', {
-        title: 'WiFinder - find a place to work with wifi'
+        title: 'WiFinder - find nearby WiFi hotspots'
         , pageHeader: {
             title: 'WiFinder'
-            , strapline: 'Find places to work with wifi near you'
+            , strapline: 'Now WiFi hootspot is more accessible'
         }
-        , sidebar: 'Looking for wifi and a seat? WiFinder helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let WiFinder help you find the place you are looking for.'
+        , sidebar: ' WiFinder helps you to find nearby hotspots'
     });
 };
 var getLocationInfo = function (req, res, callback) {
@@ -75,8 +75,8 @@ var renderDetailPage = function (req, res, locationData) {
                 title: locationData.name
             }
             , sidebar: {
-                context: locationData.name + ' is on WiFinder because it has accessible wifi and space to sit down with your laptop.'
-                , callToAction: 'if you\'ve been and you like it - or if you dont\'t - please leave a review to help oother people.'
+                context: locationData.name + ' is on WiFinder because it proovides free WiFi foor public!'
+                , callToAction: 'if you\'ve been here, please make a reivew.'
             }
             , location: locationData
             , token: token
