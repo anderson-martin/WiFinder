@@ -27,12 +27,12 @@ module.exports.homelist = function (req, res) {
 var renderHomepage = function (req, res) {
 
     res.render('locations-list', {
-        title: 'Loc8r - find a place to work with wifi'
+        title: 'WiFinder - find a place to work with wifi'
         , pageHeader: {
-            title: 'Loc8r'
+            title: 'WiFinder'
             , strapline: 'Find places to work with wifi near you'
         }
-        , sidebar: 'Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Loc8r help you find the place you are looking for.'
+        , sidebar: 'Looking for wifi and a seat? WiFinder helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let WiFinder help you find the place you are looking for.'
     });
 };
 var getLocationInfo = function (req, res, callback) {
@@ -75,7 +75,7 @@ var renderDetailPage = function (req, res, locationData) {
                 title: locationData.name
             }
             , sidebar: {
-                context: locationData.name + ' is on Loc8r because it has accessible wifi and space to sit down with your laptop.'
+                context: locationData.name + ' is on WiFinder because it has accessible wifi and space to sit down with your laptop.'
                 , callToAction: 'if you\'ve been and you like it - or if you dont\'t - please leave a review to help oother people.'
             }
             , location: locationData
@@ -90,7 +90,7 @@ module.exports.addReview = function (req, res) {
 };
 var renderReviewForm = function (req, res, locDetails) {
     res.render('location-review-form', {
-        title: "Review " + locDetails.name + " on Loc8r"
+        title: "Review " + locDetails.name + " on WiFinder"
         , pageHeader: {
             title: 'Review ' + locDetails.name
         }
