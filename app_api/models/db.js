@@ -9,7 +9,7 @@ var dbURI =  'mongodb://localhost/Loc8r';
 //when NODE_ENV is set to production, Heroku can run this on production mode, in their servers
 if (process.env.NODE_ENV === 'production'){
 
-  //i deifined my own variable as MONGOLAB_URI, to prevent exposing my credentials into public
+  //i defined my own variable as MONGOLAB_URI, to prevent exposing my credentials into public
   dbURI = process.env.MONGOLAB_URI;
 }
 mongoose.connect(dbURI);

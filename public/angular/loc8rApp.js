@@ -31,16 +31,12 @@ var ratingStars = function () {
         , templateUrl: "angular/rating-stars.html"
     };
 };
-/* part 1- why this together with part 2 are synchronous?
-var loc8rData = function($http){
-    //?? check what there is no localhost:3000 before the url
-    return $http.get('/api/locations?lng=24.960043&lat=60.168971&maxDistance=5000');
-    
-    */
+
+
 var loc8rData = function ($http) {
     // u should pass arguments(like followings) to a service constructor via its methods. 
     var locationsByCoords = function (lat, lng) {
-        return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=20000');
+        return $http.get('/api/locations?lng=' + lng + '&lat=' + lat + '&maxDistance=100000');
     };
     return {
         locationsByCoords: locationsByCoords
@@ -87,12 +83,6 @@ var locationsListCtrl = function ($scope, loc8rData, geolocation) {
     };
     geolocation.getPosition($scope.success, $scope.error, $scope.noGeo);
 };
-/* part 2- why this together with part 1 are synchronous?
-var locationsListCtrl = function ($scope, loc8rData) {
-    $scope.data = {
-        locations: loc8rData
-    };
-};
-page 266
-*/
+
+
 angular.module('loc8rApp').controller('locationsListCtrl', locationsListCtrl).filter('formatDistance', formatDistance).directive('ratingStars', ratingStars).service('loc8rData', loc8rData).service('geolocation', geolocation);

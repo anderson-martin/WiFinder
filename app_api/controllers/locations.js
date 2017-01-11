@@ -1,22 +1,7 @@
 var mongoose = require('mongoose');
 var Loc = mongoose.model('Location');
-/*
 
-GeoJSON's MongoDB, requires maxDistance to be based on meter. So book's extra functions arent required
-var theEarth = (function () {
-    var earthRadius = 6371;
-    var getDistanceFromRads = function (rads) {
-        return parseFloat(rads * earthRadius);
-    };
-    var getRadsFromDistance = function (distance) {
-        return parseFloat(distance / earthRadius);
-    };
-    return {
-        getDistanceFromRads: getDistanceFromRads
-        , getRadsFromDistance: getRadsFromDistance
-    };
-})();
-*/
+
 var sendJsonResponse = function (res, status, content) {
     res.status(status);
     res.json(content);
@@ -41,8 +26,6 @@ module.exports.locationsListByDistance = function (req, res) {
     };
     var options = {
         spherical: true, 
-        //maxDistance: theEarth.getRadsFromDistance(20),
-        //GeoJSON's MongoDB, requires maxDistance to be based on meter. So book's extra functions arent required
         maxDistance: maxDistance
         , num: 10
     };
@@ -55,8 +38,6 @@ module.exports.locationsListByDistance = function (req, res) {
         else {
             results.forEach(function (doc) {
                 locations.push({
-                    //GeoJSON's MongoDB, requires maxDistance to be based on meter. So book's extra functions arent required
-                    //distance: theEarth.getDistanceFromRads(doc.dis)
                     distance: doc.dis
                     , name: doc.obj.name
                     , address: doc.obj.address
@@ -75,7 +56,7 @@ module.exports.locationsCreate = function (req, res) {
         name: req.body.name
         , address: req.body.address
         , facilities: req.body.facilities.split(",")
-        , coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)], //??how to make loop of following
+        , coords: [parseFloat(req.body.lng), parseFloat(req.body.lat)], 
         openingTimes: [{
             days: req.body.days1
             , opening: req.body.opening1

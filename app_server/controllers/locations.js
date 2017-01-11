@@ -59,7 +59,7 @@ var getLocationInfo = function (req, res, callback) {
     }
     /* Get 'Location info' pages */
 module.exports.locationInfo = function (req, res) {
-    //?? figure out what would be the result if u just put getLocationInfo(req, res, renderDetailPage(req, res, responseData))        
+
     getLocationInfo(req, res, function (req, res, responseData) {
         renderDetailPage(req, res, responseData);
     });
@@ -113,7 +113,7 @@ module.exports.doAddReview = function (req, res) {
         , method: 'POST'
         , json: postData
     };
-    // ?? if any of this data is falsey, then it redirects. search more about falsey
+
     if (!postData.author || !postData.rating || !postData.reviewText) {
         res.redirect('/location/' + locationid + '/review/new?err=val');
     }
