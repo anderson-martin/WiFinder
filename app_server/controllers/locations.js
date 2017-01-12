@@ -5,7 +5,6 @@ var apiOptions = {
 if (process.env.NODE_ENV === "production") {
     apiOptions.server = "tranquil-island-41577.herokuapp.com";
 }
-
 var _showError = function (req, res, statusCode) {
     if (statusCode === 404) {
         res.render('generic-text', {
@@ -25,7 +24,6 @@ module.exports.homelist = function (req, res) {
     renderHomepage(req, res);
 };
 var renderHomepage = function (req, res) {
-
     res.render('locations-list', {
         title: 'WiFinder - find nearby WiFi hotspots'
         , pageHeader: {
@@ -36,6 +34,7 @@ var renderHomepage = function (req, res) {
     });
 };
 var getLocationInfo = function (req, res, callback) {
+        console.log('till here has been done - three');
         var requestOptions, path, data;
         path = '/api/locations/' + req.params.locationid;
         requestOptions = {
@@ -44,6 +43,7 @@ var getLocationInfo = function (req, res, callback) {
             , json: {}
         };
         request(requestOptions, function (err, HTTPresponse, responseBody) {
+            console.log('four - this is the HTTPresponse=' + HTTPresponse);
             data = responseBody;
             if (HTTPresponse.statusCode === 200) {
                 data.coords = {
@@ -53,22 +53,22 @@ var getLocationInfo = function (req, res, callback) {
                 callback(req, res, data);
             }
             else {
+                console.log('five - this is the HTTPresponse=' + HTTPresponse);
                 _showError(req, res, HTTPresponse.statusCode);
             }
         });
     }
     /* Get 'Location info' pages */
 module.exports.locationInfo = function (req, res) {
-            console.log('till here has been done - one');
+    console.log('till here has been done - one');
     getLocationInfo(req, res, function (req, res, responseData) {
+        console.log('till here has been done - two');
         renderDetailPage(req, res, responseData);
     });
 };
 var renderDetailPage = function (req, res, locationData) {
-    // for security reason, Google Token should be saved as an environmental variable named googletoken
-    var token = process.env.googletoken;
-
-            console.log('till here has been done - two');
+        // for security reason, Google Token should be saved as an environmental variable named googletoken
+        var token = process.env.googletoken;
         res.render('location-info', {
             title: locationData.name
             , pageHeader: {
@@ -113,7 +113,6 @@ module.exports.doAddReview = function (req, res) {
         , method: 'POST'
         , json: postData
     };
-
     if (!postData.author || !postData.rating || !postData.reviewText) {
         res.redirect('/location/' + locationid + '/review/new?err=val');
     }
