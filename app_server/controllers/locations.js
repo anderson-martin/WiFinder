@@ -1,9 +1,10 @@
 var request = require('request');
 var apiOptions = {
     server: "http://localhost:3000"
+    
 };
 if (process.env.NODE_ENV === "production") {
-    apiOptions.server = "wifinder-v1-1.herokuapp.com";
+    apiOptions.server = "http://wifinder-v1-1.herokuapp.com";
 }
 var _showError = function (req, res, statusCode) {
     if (statusCode === 404) {
