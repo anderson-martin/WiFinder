@@ -4,7 +4,7 @@ var apiOptions = {
     
 };
 if (process.env.NODE_ENV === "production") {
-    //attention: remember to change this whenever you make a new applicatioon.
+    //attention: remember to change this whenever you make a new application.
     apiOptions.server = "http://wifinder-v1-1.herokuapp.com";
 }
 var _showError = function (req, res, statusCode) {
