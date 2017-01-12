@@ -22,8 +22,15 @@ block content
               span.badge.pull-right.badge-default {{ location.distance | formatDistance }}
             p.address {{ location.address }}
             p 
-              span.label.label-warning.label-facility(ng-repeat="facility in location.facilities")
-                | {{ facility }} 
+              span.label.label-warning.label-facility(ng-repeat-start="facility in location.facilities")
+                span.glyphicon.glyphicon-ok
+                  |{{ facility }}
+              span(ng-repeat-end) #{' '}
+                  
+
+
+
+
 
 
 
