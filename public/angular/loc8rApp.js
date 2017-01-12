@@ -67,7 +67,7 @@ var locationsListCtrl = function ($scope, loc8rData, geolocation) {
                 locations: retrievedData
             };
         }).error(function (e) {
-            $scope.message = "sorry, something went wroong";
+            $scope.message = "sorry, something went wrong";
             console.log('this is error: ' + e);
         })
     };
