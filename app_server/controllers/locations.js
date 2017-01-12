@@ -41,8 +41,9 @@ var getLocationInfo = function (req, res, callback) {
             url: apiOptions.server + path
             , method: 'GET'
             , json: {}
-            console.log('4 - this is the url = ' + url);
+            
         };
+        console.log('4 - this is the url = ' + apiOptions.server + path);
         request(requestOptions, function (err, HTTPresponse, responseBody) {
             console.log('5- this is error: ' + err)
             console.log('6 - this is the HTTPresponse=' + HTTPresponse);
