@@ -41,9 +41,12 @@ var getLocationInfo = function (req, res, callback) {
             url: apiOptions.server + path
             , method: 'GET'
             , json: {}
+            console.log('4 - this is the url = ' + url);
         };
         request(requestOptions, function (err, HTTPresponse, responseBody) {
-            console.log('four - this is the HTTPresponse=' + HTTPresponse);
+            console.log('5- this is error: ' + err)
+            console.log('6 - this is the HTTPresponse=' + HTTPresponse);
+            console.log('7 - this is the responseBody=' + responseBody);
             data = responseBody;
             if (HTTPresponse.statusCode === 200) {
                 data.coords = {
@@ -53,7 +56,7 @@ var getLocationInfo = function (req, res, callback) {
                 callback(req, res, data);
             }
             else {
-                console.log('five - this is the HTTPresponse=' + HTTPresponse);
+                console.log('7 - this is the HTTPresponse=' + HTTPresponse);
                 _showError(req, res, HTTPresponse.statusCode);
             }
         });
