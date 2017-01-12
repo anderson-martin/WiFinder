@@ -1,4 +1,4 @@
-# WiFinder
+# WiFinder v1.1
 ###Finding your nearby and free WiFi providers 
 
 WiFinder is a RESTful service that finds your nearby WiFi Hotspots. You can see it's live version on <a href="https://wifinder-v1-1.herokuapp.com/">my Heroku.</a>
