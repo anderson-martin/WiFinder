@@ -59,7 +59,7 @@ var getLocationInfo = function (req, res, callback) {
     }
     /* Get 'Location info' pages */
 module.exports.locationInfo = function (req, res) {
-
+            console.log('till here has been done - one');
     getLocationInfo(req, res, function (req, res, responseData) {
         renderDetailPage(req, res, responseData);
     });
@@ -68,7 +68,7 @@ var renderDetailPage = function (req, res, locationData) {
     // for security reason, Google Token should be saved as an environmental variable named googletoken
     var token = process.env.googletoken;
 
-
+            console.log('till here has been done - two');
         res.render('location-info', {
             title: locationData.name
             , pageHeader: {

@@ -6,7 +6,7 @@ var _isNumeric = function (n) {
 var formatDistance = function () {
     return function (distance) {
         var numDistance, unit;
-        console.log('till here has been done');
+
         if (distance && _isNumeric(distance)) {
             if (distance > 1000) {
                 numDistance = (parseFloat(distance) / 1000).toFixed(1);
