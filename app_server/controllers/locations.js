@@ -3,7 +3,7 @@ var apiOptions = {
     server: "http://localhost:3000"
 };
 if (process.env.NODE_ENV === "production") {
-    apiOptions.server = "tranquil-island-41577.herokuapp.com";
+    apiOptions.server = "wifinder-v1-1.herokuapp.com";
 }
 var _showError = function (req, res, statusCode) {
     if (statusCode === 404) {
